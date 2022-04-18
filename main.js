@@ -65,7 +65,17 @@ function animate(){
     requestAnimationFrame(animate);
     mesh.rotation.x += 0.15;
     mesh.rotation.y += 0.15;
+    
+//autoRotate timer
+    var timer = Date.now() * 0.0005;
+
+    camera.position.x = Math.cos(timer)*10;
+    camera.position.z = Math.sin(timer)*10;
+
+    camera.lookAt(scene.position);
     renderer.render(scene,camera);
+    
+
 }
 animate();
 
